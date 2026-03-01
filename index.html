@@ -159,12 +159,52 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600}
 .modal-close{margin-top:16px;width:100%;padding:10px;background:var(--gold);color:var(--bg-primary);border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;font-size:13px;transition:background .2s}
 .modal-close:hover{background:var(--gold-light)}
 
+/* FOUNDATION & RITUALS CARDS */
+.foundation-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+.foundation-card{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;transition:all .2s;position:relative;overflow:hidden}
+.foundation-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px}
+.foundation-card:hover{border-color:var(--border-light);transform:translateY(-1px)}
+.foundation-card.full-width{grid-column:1/-1}
+.card-icon{font-size:20px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.card-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;margin-bottom:12px;color:var(--text-primary)}
+.card-subtitle{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.card-narrative{font-size:13.5px;color:var(--text-secondary);line-height:1.7}
+.value-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.value-item:last-child{border-bottom:none}
+.value-name{font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:2px}
+.value-desc{font-size:12.5px;color:var(--text-secondary);line-height:1.5}
+.value-number{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--bg-primary);font-size:11px;font-weight:700;margin-right:8px;flex-shrink:0}
+.passion-group{margin-bottom:16px}
+.passion-group:last-child{margin-bottom:0}
+.passion-group-title{font-size:12px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.passion-tag{display:inline-block;padding:5px 12px;margin:3px 4px 3px 0;font-size:12px;border-radius:16px;background:rgba(201,168,76,0.06);border:1px solid var(--border);color:var(--text-secondary);transition:all .2s}
+.passion-tag:hover{border-color:var(--gold-dim);color:var(--text-primary)}
+.avoid-group{margin-bottom:14px}
+.avoid-group:last-child{margin-bottom:0}
+.avoid-group-title{font-size:12px;font-weight:600;color:var(--health);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.avoid-item{font-size:13px;color:var(--text-secondary);padding:4px 0;line-height:1.5;display:flex;align-items:flex-start;gap:8px}
+.avoid-item::before{content:'\2022';color:var(--text-dim);flex-shrink:0;margin-top:0}
+.role-model-grid{display:flex;gap:12px;flex-wrap:wrap}
+.role-model{padding:10px 18px;background:rgba(201,168,76,0.06);border:1px solid var(--gold-dim);border-radius:10px;font-size:14px;font-weight:500;color:var(--gold-light);transition:all .2s;cursor:default}
+.role-model:hover{background:rgba(201,168,76,0.12);border-color:var(--gold)}
+.ritual-card{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:20px;position:relative;overflow:hidden}
+.ritual-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px}
+.ritual-item{padding:10px 14px;border-left:3px solid var(--border);margin-bottom:8px;font-size:13.5px;color:var(--text-primary);line-height:1.5;background:rgba(201,168,76,0.02);border-radius:0 8px 8px 0;transition:all .2s}
+.ritual-item:hover{border-left-color:var(--gold-dim);background:rgba(201,168,76,0.05)}
+.ritual-number{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;font-size:10px;font-weight:700;margin-right:8px;flex-shrink:0}
+.gratitude-item{padding:8px 14px;font-size:13.5px;color:var(--text-secondary);line-height:1.6;display:flex;align-items:flex-start;gap:10px}
+.gratitude-icon{color:var(--gold);flex-shrink:0;margin-top:2px}
+.motto-banner{background:linear-gradient(135deg,rgba(201,168,76,0.1),rgba(201,168,76,0.04));border:1px solid var(--gold-dim);border-radius:12px;padding:24px;text-align:center;margin-top:32px}
+.motto-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--gold-light);letter-spacing:1px}
+.motto-sub{font-size:12px;color:var(--text-dim);margin-top:8px}
+
 /* Responsive */
 @media(max-width:900px){
   .sidebar{display:none}
   .main{margin-left:0}
   .filter-pills{display:none}
   .topbar-title{font-size:16px}
+  .foundation-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -213,6 +253,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600}
     <div class="affirmation">8. I have overcome hard things before. I will overcome again.</div>
     <div class="affirmation">9. I am resilient, determined, and relentless.</div>
     <div class="affirmation">10. My best days are ahead of me.</div>
+    <div class="affirmation">11. Despite past heartbreaks, my heart is open and my best love story is ahead of me.</div>
     <button class="modal-close" onclick="document.getElementById('affirmModal').classList.remove('open')">Close</button>
   </div>
 </div>
@@ -225,6 +266,86 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600}
 // GOALS DATA
 // ============================================================
 const SECTIONS = [
+  {
+    id: 'foundation',
+    name: 'My Foundation',
+    color: 'var(--gold)',
+    colorHex: '#C9A84C',
+    isFoundation: true,
+    data: {
+      vision: "A successful marriage and family with 2\u20133 kids. A successful and prosperous career where I eventually move up into the C-Suite office (CIO/CDO by 45, CEO by 50) and eventually branch off and start my own business or have multiple revenue streams with lots of passive income. Obtain my MBA from a top 10 program. A large 7K sq ft home with a large yard and a pool and guest house. Vacation homes in Florida, Colorado, Costa Rica, and Italy. Serve on multiple boards. Become a public figure in the business world. Write a book. Be on the cover of Forbes/Fortune. Start a large nonprofit. Eventually serve in political/public office\u2014Governor as the ultimate capstone. Leave a legacy of impact and philanthropy.",
+      roleModels: ['Ray Dalio', 'Simon Sinek', 'Julius Caesar', 'Ronald Reagan'],
+      coreValues: [
+        { name: 'Family & Legacy', desc: 'Building a strong family foundation; being remembered; leaving something behind that matters' },
+        { name: 'Wealth & Financial Freedom', desc: 'Building substantial wealth; multiple income streams; never being financially dependent or constrained; abundance' },
+        { name: 'Health & Vitality', desc: 'Physical fitness, mental wellness, longevity\u2014the foundation everything else is built on' },
+        { name: 'Ambition & Growth', desc: 'Relentless advancement; refusing to settle; if you\u2019re not moving forward, you\u2019re not winning' },
+        { name: 'Vision & Impact', desc: 'Meaningful work; high-tech and futuristic thinking; leaving a profound mark on the world' },
+        { name: 'Integrity & Character', desc: 'Doing what is morally right regardless of personal setbacks; unwavering principles' },
+        { name: 'Faith & Community', desc: 'Growing closer to God; finding a church home; developing spiritually in an area I\u2019ve neglected' },
+        { name: 'Adventure & Exploration', desc: 'Seeing the world; new experiences; living a full life\u2014not just existing' },
+        { name: 'Leadership & Influence', desc: 'Leading others; shaping the future; world recognition; POTUS-level ambition to leave a legacy people remember' }
+      ],
+      passions: {
+        energize: ['Working out and pushing my body', 'Public speaking and commanding a room', 'Innovating and problem solving', 'Crafting strategy and big-picture thinking', 'Cooking challenging gourmet meals', 'Traveling the world and exploring new places and cultures', 'Entertaining others and hosting parties', 'Networking with like-minded people', 'Mind-stimulating conversations'],
+        talkAbout: ['Fitness, health, and biohacking', 'Optimizing results from training and nutrition', 'AI and the advancement of technology', 'Data, analytics, and IoT/smart devices', 'History (geeking out on it)', 'Engineering and technology', 'Business strategy', 'Stocks, investments, and making money', 'Travel stories and trips I\u2019ve gone on'],
+        recharge: ['Travel and exploring new places', 'Working out', 'Cooking and entertaining', 'Building things (Legos, projects)', 'Being in nature / outdoors', 'Spa and recovery\u2014relaxing, unwinding'],
+        mostMyself: ['Most confident: When leading a room or presenting', 'Most relaxed: After a relaxing spa day or meditation', 'Most energized: After crushing an intense workout', 'Most content: When traveling and experiencing new cultures', 'Most connected: When having a stimulating, thought-provoking conversation']
+      },
+      passionSummary: "I\u2019m passionate about innovation, strategy, and solving complex problems\u2014especially at the intersection of AI, technology, and business. I thrive when I\u2019m pushing my body through fitness, exploring new places and cultures, and hosting and connecting with like-minded people over great food and stimulating conversation. I geek out on history, biohacking, investments, and anything engineering or tech-related. I feel most alive when I\u2019m building something meaningful, learning, and advancing.",
+      purpose: "To go from business visionary to world leader\u2014creating technologies that transform how we live, then rising to global influence to unite nations and build a better future.",
+      avoid: {
+        people: ['Negative and pessimistic people', 'Doubtful people who don\u2019t believe in me or my vision', 'Jealous or envious people', 'Selfish people who don\u2019t reciprocate\u2014only around when they need something', 'People who don\u2019t match my energy', 'People with victim mentalities'],
+        habits: ['Doom scrolling and mindless phone use\u2014need to be more present and focused', 'Procrastination', 'Staying up late', 'Playing video games for too long', 'Self-doubt spirals when setbacks pile up'],
+        environments: ['Work environments where I\u2019m underutilized, undervalued, and not challenged', 'Places where I\u2019m not set up for success or given room to grow', 'Situations where I feel stuck or used below my potential'],
+        mindsets: ['Perfectionism\u2014can\u2019t let perfect be the enemy of good', 'Negative thinking and hopelessness when setbacks compound', 'Unhealthy comparison to others\u2014use it as fuel, not as a measure of self-worth']
+      },
+      avoidSummary: "To live a happier and more fulfilling life, I need to limit time with negative, pessimistic, doubtful, jealous, or selfish people\u2014anyone who doesn\u2019t match my energy or operates with a victim mentality. I need to break habits that steal my focus and time: doom scrolling, mindless phone use, procrastination, staying up late, and excessive video games. I want to be more present and intentional. I need to leave environments where I\u2019m underutilized, undervalued, or not challenged\u2014places that keep me stuck rather than pushing me forward. I need to manage my mindset: let go of perfectionism, avoid spiraling into negative thinking when setbacks pile up, and stop using comparison as a measure of worth\u2014instead using it as fuel for growth."
+    }
+  },
+  {
+    id: 'rituals',
+    name: 'Daily Rituals',
+    color: 'var(--spiritual)',
+    colorHex: '#4361EE',
+    isRituals: true,
+    data: {
+      gratitude: [
+        'True friends and family who I talk to regularly and know will always be there',
+        'Everything I\u2019ve accomplished\u2014I\u2019ve worked hard for it',
+        'My resilience and determination\u2014nothing has come easy, but that\u2019s built my strength',
+        'The hard things I\u2019ve overcome\u2014they\u2019ve shaped who I am',
+        'My health and genetics\u2014to be almost 40 and still fit, healthy, and young-looking is a blessing',
+        'The experiences and places I\u2019ve traveled\u2014I\u2019ve truly lived'
+      ],
+      gratitudeSummary: "I\u2019m grateful for the true friends and family in my life\u2014the people I know will always be there. I\u2019m grateful for everything I\u2019ve accomplished and the hard things I\u2019ve overcome. Nothing has ever come easy for me, but that\u2019s given me pride in my resilience and determination. I\u2019m thankful for my health and genetics\u2014to be almost 40 and still fit, healthy, and young-looking is something I don\u2019t take for granted. And I\u2019m grateful for the experiences and places I\u2019ve traveled\u2014I\u2019ve truly lived.",
+      affirmations: [
+        'I am building generational wealth and a legacy that lasts.',
+        'I am a visionary leader who creates real impact.',
+        'I lead with integrity and excellence in everything I do.',
+        'I am in the best shape of my life\u2014mentally and physically.',
+        'I attract abundance, opportunity, and meaningful relationships.',
+        'I am unstoppable when I focus.',
+        'I am rising to global influence and building a better future.',
+        'I have overcome hard things before. I will overcome again.',
+        'I am resilient, determined, and relentless.',
+        'My best days are ahead of me.',
+        'Despite past heartbreaks, my heart is open and my best love story is ahead of me.'
+      ],
+      reminders: [
+        'Progress over perfection.',
+        'Stay patient\u2014the vision is long-term.',
+        'Comparison is the thief of joy. Use it as fuel, not a scorecard.',
+        'I\u2019ve overcome harder. I\u2019ll overcome this.',
+        'Put the phone down. Be present.',
+        'I\u2019m not stuck\u2014I\u2019m in transition.',
+        'The setback is setting up the comeback.',
+        'Trust the process. Trust yourself.',
+        'Not everyone is meant to go where I\u2019m going.',
+        'My worth is not defined by my current situation.'
+      ]
+    }
+  },
   {
     id: 'health',
     name: 'Health & Fitness',
@@ -835,8 +956,8 @@ const SECTIONS = [
       {
         label: 'TOP 5 BUCKET LIST TRIPS',
         goals: [
-          'Egypt \u2014 Pyramids, Nile, ancient history',
           'SE Asia \u2014 Thailand, Vietnam, Indonesia, Cambodia',
+          'Egypt \u2014 Pyramids, Nile, ancient history',
           'Machu Picchu \u2014 Hike the Inca Trail',
           'Viking River Cruise \u2014 France & Germany with parents',
           'African Safari \u2014 Kenya, Tanzania, or South Africa'
@@ -1053,7 +1174,7 @@ function funGoalId(type, subIdx, goalIdx) {
 // ============================================================
 function countSection(section) {
   let total = 0, done = 0;
-  if (section.isVision) return { total: 0, done: 0 };
+  if (section.isVision || section.isFoundation || section.isRituals) return { total: 0, done: 0 };
   if (section.timeframes) {
     for (const tf of Object.keys(section.timeframes)) {
       const tfData = section.timeframes[tf];
@@ -1137,7 +1258,9 @@ function renderSidebar() {
     html += '<div class="nav-item' + (isActive ? ' active' : '') + '" data-section="' + s.id + '">';
     html += '<span class="nav-dot" style="background:' + s.colorHex + '"></span>';
     html += '<span class="nav-label">' + s.name + '</span>';
-    if (s.inProgress) {
+    if (s.isFoundation || s.isRituals) {
+      // No badge for foundation/rituals sections
+    } else if (s.inProgress) {
       html += '<span class="nav-status in-progress">In Progress</span>';
     } else if (s.isVision) {
       html += '<span class="nav-status phase2">Phase 2</span>';
@@ -1197,6 +1320,148 @@ function renderGoalsView() {
   html += '<h2 class="section-title" style="color:' + section.colorHex + '">' + section.name + '</h2>';
   html += '<div class="section-rule"></div>';
   html += '</div>';
+
+  // Foundation section
+  if (section.isFoundation) {
+    const d = section.data;
+    html += '<div class="foundation-grid">';
+
+    // Vision Card
+    html += '<div class="foundation-card full-width" style="--card-accent:var(--gold)">';
+    html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)"></div>';
+    html += '<div class="card-icon"><i data-lucide="telescope" style="width:20px;height:20px;color:var(--gold)"></i><span class="card-title" style="margin-bottom:0">What Is the Vision for My Life?</span></div>';
+    html += '<p class="card-narrative" style="margin-top:10px">' + d.vision + '</p>';
+    html += '</div>';
+
+    // Role Models Card
+    html += '<div class="foundation-card full-width" style="--card-accent:var(--gold)">';
+    html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)"></div>';
+    html += '<div class="card-icon"><i data-lucide="crown" style="width:20px;height:20px;color:var(--gold)"></i><span class="card-title" style="margin-bottom:0">Role Models</span></div>';
+    html += '<div class="role-model-grid" style="margin-top:12px">';
+    d.roleModels.forEach(rm => {
+      html += '<div class="role-model">' + rm + '</div>';
+    });
+    html += '</div></div>';
+
+    // Core Values Card
+    html += '<div class="foundation-card full-width" style="--card-accent:var(--gold)">';
+    html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)"></div>';
+    html += '<div class="card-icon"><i data-lucide="compass" style="width:20px;height:20px;color:var(--gold)"></i><span class="card-title" style="margin-bottom:0">Core Values</span></div>';
+    html += '<div style="margin-top:8px">';
+    d.coreValues.forEach((v, i) => {
+      html += '<div class="value-item"><div style="display:flex;align-items:flex-start;gap:4px"><span class="value-number">' + (i + 1) + '</span><div><div class="value-name">' + v.name + '</div><div class="value-desc">' + v.desc + '</div></div></div></div>';
+    });
+    html += '</div></div>';
+
+    // Passions Card
+    html += '<div class="foundation-card full-width" style="--card-accent:var(--gold)">';
+    html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)"></div>';
+    html += '<div class="card-icon"><i data-lucide="flame" style="width:20px;height:20px;color:var(--gold)"></i><span class="card-title" style="margin-bottom:0">What I\'m Passionate About</span></div>';
+
+    html += '<div class="passion-group" style="margin-top:12px"><div class="passion-group-title">Activities That Energize Me</div>';
+    d.passions.energize.forEach(p => { html += '<span class="passion-tag">' + p + '</span>'; });
+    html += '</div>';
+
+    html += '<div class="passion-group"><div class="passion-group-title">Topics I Could Talk About for Hours</div>';
+    d.passions.talkAbout.forEach(p => { html += '<span class="passion-tag">' + p + '</span>'; });
+    html += '</div>';
+
+    html += '<div class="passion-group"><div class="passion-group-title">How I Recharge</div>';
+    d.passions.recharge.forEach(p => { html += '<span class="passion-tag">' + p + '</span>'; });
+    html += '</div>';
+
+    html += '<div class="passion-group"><div class="passion-group-title">When I Feel Most Like Myself</div>';
+    d.passions.mostMyself.forEach(p => { html += '<span class="passion-tag">' + p + '</span>'; });
+    html += '</div>';
+
+    html += '<p class="card-narrative" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)"><strong style="color:var(--text-primary)">Summary:</strong> ' + d.passionSummary + '</p>';
+    html += '</div>';
+
+    // Life's Purpose Card
+    html += '<div class="foundation-card full-width" style="--card-accent:var(--gold)">';
+    html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)"></div>';
+    html += '<div class="card-icon"><i data-lucide="target" style="width:20px;height:20px;color:var(--gold)"></i><span class="card-title" style="margin-bottom:0">Life\'s Purpose & Mission</span></div>';
+    html += '<p style="margin-top:10px;font-family:\'Playfair Display\',serif;font-size:16px;font-style:italic;color:var(--gold-light);line-height:1.6">\u201c' + d.purpose + '\u201d</p>';
+    html += '</div>';
+
+    // What to Avoid Card
+    html += '<div class="foundation-card full-width" style="--card-accent:var(--health)">';
+    html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--health)"></div>';
+    html += '<div class="card-icon"><i data-lucide="shield-alert" style="width:20px;height:20px;color:var(--health)"></i><span class="card-title" style="margin-bottom:0">What to Avoid for a Better Life</span></div>';
+
+    html += '<div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:16px">';
+
+    html += '<div class="avoid-group"><div class="avoid-group-title">People to Limit or Avoid</div>';
+    d.avoid.people.forEach(a => { html += '<div class="avoid-item">' + a + '</div>'; });
+    html += '</div>';
+
+    html += '<div class="avoid-group"><div class="avoid-group-title">Habits to Break</div>';
+    d.avoid.habits.forEach(a => { html += '<div class="avoid-item">' + a + '</div>'; });
+    html += '</div>';
+
+    html += '<div class="avoid-group"><div class="avoid-group-title">Environments to Leave Behind</div>';
+    d.avoid.environments.forEach(a => { html += '<div class="avoid-item">' + a + '</div>'; });
+    html += '</div>';
+
+    html += '<div class="avoid-group"><div class="avoid-group-title">Mindsets to Manage</div>';
+    d.avoid.mindsets.forEach(a => { html += '<div class="avoid-item">' + a + '</div>'; });
+    html += '</div>';
+
+    html += '</div>';
+
+    html += '<p class="card-narrative" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border)"><strong style="color:var(--text-primary)">Summary:</strong> ' + d.avoidSummary + '</p>';
+    html += '</div>';
+
+    html += '</div>'; // close foundation-grid
+
+    // Motto
+    html += '<div class="motto-banner"><div class="motto-text">\u2014 Dream Big. Work Hard. Stay Humble. \u2014</div><div class="motto-sub">This document is a living roadmap. Review monthly. Update as you grow.</div></div>';
+
+    return html;
+  }
+
+  // Rituals section
+  if (section.isRituals) {
+    const d = section.data;
+
+    // Gratitude Card
+    html += '<div class="ritual-card">';
+    html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)"></div>';
+    html += '<div class="card-icon"><i data-lucide="heart" style="width:20px;height:20px;color:var(--gold)"></i><span class="card-title" style="margin-bottom:0">I\'m Grateful For...</span></div>';
+    html += '<div style="margin-top:12px">';
+    d.gratitude.forEach(g => {
+      html += '<div class="gratitude-item"><span class="gratitude-icon"><i data-lucide="sparkles" style="width:14px;height:14px"></i></span><span>' + g + '</span></div>';
+    });
+    html += '</div>';
+    html += '<p class="card-narrative" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)"><strong style="color:var(--text-primary)">Summary:</strong> ' + d.gratitudeSummary + '</p>';
+    html += '</div>';
+
+    // Affirmations Card
+    html += '<div class="ritual-card">';
+    html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--spiritual)"></div>';
+    html += '<div class="card-icon"><i data-lucide="zap" style="width:20px;height:20px;color:var(--spiritual)"></i><span class="card-title" style="margin-bottom:0">My Affirmations</span></div>';
+    html += '<div class="card-subtitle">Read these every morning. Believe them.</div>';
+    html += '<div style="margin-top:4px">';
+    d.affirmations.forEach((a, i) => {
+      html += '<div class="ritual-item"><span class="ritual-number" style="background:var(--spiritual);color:#fff">' + (i + 1) + '</span>' + a + '</div>';
+    });
+    html += '</div></div>';
+
+    // Reminders Card
+    html += '<div class="ritual-card">';
+    html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#2A9D8F"></div>';
+    html += '<div class="card-icon"><i data-lucide="bookmark" style="width:20px;height:20px;color:#2A9D8F"></i><span class="card-title" style="margin-bottom:0">Things I Need to Remind Myself</span></div>';
+    html += '<div style="margin-top:12px">';
+    d.reminders.forEach((r, i) => {
+      html += '<div class="ritual-item"><span class="ritual-number" style="background:#2A9D8F;color:#fff">' + (i + 1) + '</span>' + r + '</div>';
+    });
+    html += '</div></div>';
+
+    // Motto
+    html += '<div class="motto-banner"><div class="motto-text">\u2014 Dream Big. Work Hard. Stay Humble. \u2014</div><div class="motto-sub">This document is a living roadmap. Review monthly. Update as you grow.</div></div>';
+
+    return html;
+  }
 
   // Vision Board
   if (section.isVision) {
@@ -1339,7 +1604,7 @@ function renderTimelineView() {
   html += '<div class="tl-header">Age 60 (20 Years)</div>';
 
   SECTIONS.forEach(s => {
-    if (s.isVision || !s.timeframes) return;
+    if (s.isVision || s.isFoundation || s.isRituals || !s.timeframes) return;
     html += '<div class="tl-row-label"><span class="nav-dot" style="background:' + s.colorHex + ';width:6px;height:6px"></span>' + s.name + '</div>';
     ['40','45','50','60'].forEach(tf => {
       html += '<div class="tl-cell">';
