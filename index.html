@@ -222,6 +222,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600}
       <button class="search-toggle" id="searchToggle" aria-label="Search"><i data-lucide="search" style="width:18px;height:18px"></i></button>
     </div>
     <div class="view-toggle">
+      <button class="view-btn" data-view="foundation">My Foundation</button>
       <button class="view-btn active" data-view="goals">Goals</button>
       <button class="view-btn" data-view="timeline">Timeline</button>
     </div>
@@ -1253,14 +1254,14 @@ function renderSidebar() {
   const sb = document.getElementById('sidebar');
   let html = '<nav class="sidebar-nav">';
   SECTIONS.forEach(s => {
+    // Foundation & Rituals are shown in the top-level Foundation view, not sidebar
+    if (s.isFoundation || s.isRituals) return;
     const c = countSection(s);
     const isActive = activeSection === s.id;
     html += '<div class="nav-item' + (isActive ? ' active' : '') + '" data-section="' + s.id + '">';
     html += '<span class="nav-dot" style="background:' + s.colorHex + '"></span>';
     html += '<span class="nav-label">' + s.name + '</span>';
-    if (s.isFoundation || s.isRituals) {
-      // No badge for foundation/rituals sections
-    } else if (s.inProgress) {
+    if (s.inProgress) {
       html += '<span class="nav-status in-progress">In Progress</span>';
     } else if (s.isVision) {
       html += '<span class="nav-status phase2">Phase 2</span>';
@@ -1592,6 +1593,152 @@ function renderGoalsView() {
 }
 
 // ============================================================
+// RENDER FOUNDATION VIEW (full-page)
+// ============================================================
+function renderFoundationView() {
+  const fSection = SECTIONS.find(s => s.id === 'foundation');
+  const rSection = SECTIONS.find(s => s.id === 'rituals');
+  const fd = fSection.data;
+  const rd = rSection.data;
+  let html = '';
+
+  // Hero header
+  html += '<div style="text-align:center;margin-bottom:32px">';
+  html += '<h2 style="font-family:\'Playfair Display\',serif;font-size:36px;font-weight:700;color:var(--gold-light);margin-bottom:8px">My Foundation</h2>';
+  html += '<p style="font-size:14px;color:var(--text-secondary);max-width:600px;margin:0 auto">Awareness & Self-Discovery \u2022 The bedrock of everything I\u2019m building</p>';
+  html += '<div style="height:2px;width:80px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto 0"></div>';
+  html += '</div>';
+
+  // Life Vision
+  html += '<div class="foundation-card full-width" style="margin-bottom:20px">';
+  html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)"></div>';
+  html += '<div class="card-icon"><i data-lucide="telescope" style="width:20px;height:20px;color:var(--gold)"></i><span class="card-title" style="margin-bottom:0">What Is the Vision for My Life?</span></div>';
+  html += '<p class="card-narrative" style="margin-top:10px">' + fd.vision + '</p>';
+  html += '</div>';
+
+  // Purpose - prominently displayed
+  html += '<div style="background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04));border:1px solid var(--gold-dim);border-radius:12px;padding:28px 32px;margin-bottom:20px;text-align:center;position:relative;overflow:hidden">';
+  html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)"></div>';
+  html += '<div style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold-dim);margin-bottom:10px;font-weight:600">Life\'s Purpose & Mission</div>';
+  html += '<p style="font-family:\'Playfair Display\',serif;font-size:20px;font-style:italic;color:var(--gold-light);line-height:1.6;max-width:700px;margin:0 auto">\u201c' + fd.purpose + '\u201d</p>';
+  html += '</div>';
+
+  // Role Models
+  html += '<div class="foundation-card full-width" style="margin-bottom:20px">';
+  html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)"></div>';
+  html += '<div class="card-icon"><i data-lucide="crown" style="width:20px;height:20px;color:var(--gold)"></i><span class="card-title" style="margin-bottom:0">Role Models</span></div>';
+  html += '<div class="role-model-grid" style="margin-top:12px">';
+  fd.roleModels.forEach(rm => {
+    html += '<div class="role-model">' + rm + '</div>';
+  });
+  html += '</div></div>';
+
+  // Two-column: Core Values + Gratitude
+  html += '<div class="foundation-grid">';
+
+  // Core Values
+  html += '<div class="foundation-card" style="grid-row:span 2">';
+  html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)"></div>';
+  html += '<div class="card-icon"><i data-lucide="compass" style="width:20px;height:20px;color:var(--gold)"></i><span class="card-title" style="margin-bottom:0">Core Values</span></div>';
+  html += '<div style="margin-top:8px">';
+  fd.coreValues.forEach((v, i) => {
+    html += '<div class="value-item"><div style="display:flex;align-items:flex-start;gap:4px"><span class="value-number">' + (i + 1) + '</span><div><div class="value-name">' + v.name + '</div><div class="value-desc">' + v.desc + '</div></div></div></div>';
+  });
+  html += '</div></div>';
+
+  // Gratitude
+  html += '<div class="foundation-card">';
+  html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)"></div>';
+  html += '<div class="card-icon"><i data-lucide="heart" style="width:20px;height:20px;color:var(--gold)"></i><span class="card-title" style="margin-bottom:0">I\'m Grateful For...</span></div>';
+  html += '<div style="margin-top:12px">';
+  rd.gratitude.forEach(g => {
+    html += '<div class="gratitude-item"><span class="gratitude-icon"><i data-lucide="sparkles" style="width:14px;height:14px"></i></span><span>' + g + '</span></div>';
+  });
+  html += '</div></div>';
+
+  // Affirmations
+  html += '<div class="foundation-card">';
+  html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--spiritual)"></div>';
+  html += '<div class="card-icon"><i data-lucide="zap" style="width:20px;height:20px;color:var(--spiritual)"></i><span class="card-title" style="margin-bottom:0">My Affirmations</span></div>';
+  html += '<div class="card-subtitle">Read these every morning. Believe them.</div>';
+  html += '<div style="margin-top:4px">';
+  rd.affirmations.forEach((a, i) => {
+    html += '<div class="ritual-item"><span class="ritual-number" style="background:var(--spiritual);color:#fff">' + (i + 1) + '</span>' + a + '</div>';
+  });
+  html += '</div></div>';
+
+  html += '</div>'; // close foundation-grid
+
+  // Passions - full width
+  html += '<div class="foundation-card full-width" style="margin-bottom:20px">';
+  html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)"></div>';
+  html += '<div class="card-icon"><i data-lucide="flame" style="width:20px;height:20px;color:var(--gold)"></i><span class="card-title" style="margin-bottom:0">What I\'m Passionate About</span></div>';
+
+  html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:12px">';
+
+  html += '<div class="passion-group"><div class="passion-group-title">Activities That Energize Me</div>';
+  fd.passions.energize.forEach(p => { html += '<span class="passion-tag">' + p + '</span>'; });
+  html += '</div>';
+
+  html += '<div class="passion-group"><div class="passion-group-title">Topics I Could Talk About for Hours</div>';
+  fd.passions.talkAbout.forEach(p => { html += '<span class="passion-tag">' + p + '</span>'; });
+  html += '</div>';
+
+  html += '<div class="passion-group"><div class="passion-group-title">How I Recharge</div>';
+  fd.passions.recharge.forEach(p => { html += '<span class="passion-tag">' + p + '</span>'; });
+  html += '</div>';
+
+  html += '<div class="passion-group"><div class="passion-group-title">When I Feel Most Like Myself</div>';
+  fd.passions.mostMyself.forEach(p => { html += '<span class="passion-tag">' + p + '</span>'; });
+  html += '</div>';
+
+  html += '</div>';
+
+  html += '<p class="card-narrative" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border)"><strong style="color:var(--text-primary)">Summary:</strong> ' + fd.passionSummary + '</p>';
+  html += '</div>';
+
+  // Two-column: What to Avoid + Reminders
+  html += '<div class="foundation-grid">';
+
+  // What to Avoid
+  html += '<div class="foundation-card">';
+  html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--health)"></div>';
+  html += '<div class="card-icon"><i data-lucide="shield-alert" style="width:20px;height:20px;color:var(--health)"></i><span class="card-title" style="margin-bottom:0">What to Avoid</span></div>';
+
+  html += '<div style="margin-top:12px">';
+  html += '<div class="avoid-group"><div class="avoid-group-title">People to Limit or Avoid</div>';
+  fd.avoid.people.forEach(a => { html += '<div class="avoid-item">' + a + '</div>'; });
+  html += '</div>';
+  html += '<div class="avoid-group"><div class="avoid-group-title">Habits to Break</div>';
+  fd.avoid.habits.forEach(a => { html += '<div class="avoid-item">' + a + '</div>'; });
+  html += '</div>';
+  html += '<div class="avoid-group"><div class="avoid-group-title">Environments to Leave Behind</div>';
+  fd.avoid.environments.forEach(a => { html += '<div class="avoid-item">' + a + '</div>'; });
+  html += '</div>';
+  html += '<div class="avoid-group"><div class="avoid-group-title">Mindsets to Manage</div>';
+  fd.avoid.mindsets.forEach(a => { html += '<div class="avoid-item">' + a + '</div>'; });
+  html += '</div>';
+  html += '</div></div>';
+
+  // Reminders
+  html += '<div class="foundation-card">';
+  html += '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#2A9D8F"></div>';
+  html += '<div class="card-icon"><i data-lucide="bookmark" style="width:20px;height:20px;color:#2A9D8F"></i><span class="card-title" style="margin-bottom:0">Things I Need to Remind Myself</span></div>';
+  html += '<div style="margin-top:12px">';
+  rd.reminders.forEach((r, i) => {
+    html += '<div class="ritual-item"><span class="ritual-number" style="background:#2A9D8F;color:#fff">' + (i + 1) + '</span>' + r + '</div>';
+  });
+  html += '</div></div>';
+
+  html += '</div>'; // close foundation-grid
+
+  // Motto
+  html += '<div class="motto-banner"><div class="motto-text">\u2014 Dream Big. Work Hard. Stay Humble. \u2014</div><div class="motto-sub">This document is a living roadmap. Review monthly. Update as you grow.</div></div>';
+
+  return html;
+}
+
+// ============================================================
 // RENDER TIMELINE VIEW
 // ============================================================
 function renderTimelineView() {
@@ -1633,31 +1780,49 @@ function renderTimelineView() {
 // RENDER
 // ============================================================
 function render() {
-  renderSidebar();
-
+  const sidebar = document.getElementById('sidebar');
   const main = document.getElementById('mainContent');
+  const filterPills = document.querySelector('.filter-pills');
+
+  // Foundation view is full-page — hide sidebar and filters
+  if (activeView === 'foundation') {
+    sidebar.style.display = 'none';
+    main.style.marginLeft = '0';
+    if (filterPills) filterPills.style.display = 'none';
+  } else {
+    sidebar.style.display = '';
+    main.style.marginLeft = '';
+    if (filterPills) filterPills.style.display = '';
+    renderSidebar();
+  }
+
   let html = '';
 
-  // Quote
-  html += '<div class="quote-banner">';
-  html += '<div class="quote-text">\u201cTo go from business visionary to world leader \u2014 creating technologies that transform how we live, then rising to global influence to unite nations and build a better future.\u201d</div>';
-  html += '<div class="quote-attr">\u2014 Brandon\'s Mission</div>';
-  html += '</div>';
-
-  // Global stats
-  const overall = countAll();
-  html += '<div class="stats-bar">';
-  html += '<div class="stat-item"><span class="stat-label">Total Goals</span><span class="stat-value">' + overall.total + '</span></div>';
-  html += '<div class="stat-item"><span class="stat-label">Completed</span><span class="stat-value gold">' + overall.done + '</span></div>';
-  html += '<div class="stat-item"><span class="stat-label">Remaining</span><span class="stat-value">' + (overall.total - overall.done) + '</span></div>';
-  html += '</div>';
-
-  if (activeView === 'goals') {
-    html += '<div class="section-view active">' + renderGoalsView() + '</div>';
-    html += '<div class="timeline-view"></div>';
+  if (activeView === 'foundation') {
+    // Foundation is its own full-page view
+    html += renderFoundationView();
   } else {
-    html += '<div class="section-view"></div>';
-    html += '<div class="timeline-view active">' + renderTimelineView() + '</div>';
+    // Quote
+    html += '<div class="quote-banner">';
+    html += '<div class="quote-text">\u201cTo go from business visionary to world leader \u2014 creating technologies that transform how we live, then rising to global influence to unite nations and build a better future.\u201d</div>';
+    html += '<div class="quote-attr">\u2014 Brandon\'s Mission</div>';
+    html += '</div>';
+
+    // Global stats
+    const overall = countAll();
+    html += '<div class="stats-bar">';
+    html += '<div class="stat-item"><span class="stat-label">Total Goals</span><span class="stat-value">' + overall.total + '</span></div>';
+    html += '<div class="stat-item"><span class="stat-label">Completed</span><span class="stat-value gold">' + overall.done + '</span></div>';
+    html += '<div class="stat-item"><span class="stat-label">Remaining</span><span class="stat-value">' + (overall.total - overall.done) + '</span></div>';
+    html += '</div>';
+
+    if (activeView === 'goals') {
+      html += '<div class="section-view active">' + renderGoalsView() + '</div>';
+      html += '<div class="timeline-view"></div>';
+    } else {
+      html += '<div class="section-view"></div>';
+      html += '<div class="timeline-view active">' + renderTimelineView() + '</div>';
+    }
   }
 
   main.innerHTML = html;
