@@ -1117,13 +1117,116 @@ const SECTIONS = [
     name: 'Personal Development',
     color: 'var(--personal-dev)',
     colorHex: '#2A9D8F',
-    inProgress: true,
-    confirmedGoals: ['Executive MBA \u2014 Target age 45\u201350'],
     timeframes: {
-      '40': { label: '1 YEAR (Age 40)', categories: [] },
-      '45': { label: '5 YEARS (Age 45)', categories: [] },
-      '50': { label: '10 YEARS (Age 50)', categories: [] },
-      '60': { label: '20 YEARS (Age 60)', categories: [] }
+      '40': {
+        label: '1 YEAR (Age 40)',
+        categories: [
+          { header: 'Education & Credentials:', goals: [
+            'Complete MIT Sloan: AI \u2014 Implications for Business Strategy (6-week online)',
+            'Enroll in Wharton: Generative AI & Business Transformation (in-person executive program)',
+            'Begin structured Spanish learning (Pimsleur + iTalki tutor)',
+            'Begin Italian \u2014 conversational basics for travel'
+          ]},
+          { header: 'Communication & Leadership:', goals: [
+            'Complete public speaking training (formal program)',
+            'Deliver first keynote at an industry event',
+            'Complete EQ assessment; begin structured executive coaching on vulnerability & trust',
+            'Complete structured negotiation training (Harvard PON or equivalent)'
+          ]},
+          { header: 'Reading & Intellect:', goals: [
+            'Read 12 books/year minimum \u2014 leadership, AI, philosophy, stoicism',
+            'Start a consistent reading habit with notes/reflection'
+          ]},
+          { header: 'Personal Growth:', goals: [
+            'Active therapy or executive coaching',
+            'Working on vulnerability, emotional openness, and presence',
+            'Annual silent retreat or leadership immersive \u2014 5\u20137 days of disconnection and reset'
+          ]}
+        ]
+      },
+      '45': {
+        label: '5 YEARS (Age 45)',
+        categories: [
+          { header: 'Education & Credentials:', goals: [
+            'Enrolled in or completing MIT Sloan Executive MBA (#1 globally ranked, FT 2026)',
+            'Harvard Kennedy School: Emerging Leaders completed (Age 42\u201343)',
+            'Harvard Kennedy School: Leadership for the 21st Century (Age 45\u201346)',
+            'NACD Board Leadership Fellow \u2014 Fortune 500 board readiness credential (Age 46)',
+            'Conversational Spanish \u2014 using in professional and social contexts in Dallas',
+            'Conversational Italian \u2014 using during Italy trips and with family'
+          ]},
+          { header: 'Communication & Leadership:', goals: [
+            'Deliver TEDx talk or major conference keynote',
+            'Leading 100+ person organization with measurable culture results',
+            'Mentor 3+ rising leaders formally',
+            'Applying negotiation skills in M&A, board, and policy contexts'
+          ]},
+          { header: 'Reading & Writing:', goals: [
+            'Deep reading in policy, history, theology',
+            'First draft of own book in progress',
+            'Reading list curated and shared with inner circle'
+          ]},
+          { header: 'Personal Growth:', goals: [
+            'Measurable growth in EQ, presence, and work-life integration',
+            'Fully present with partner and growing family',
+            'Annual leadership immersive or silent retreat maintained'
+          ]}
+        ]
+      },
+      '50': {
+        label: '10 YEARS (Age 50)',
+        categories: [
+          { header: 'Education & Credentials:', goals: [
+            'MIT Sloan Executive MBA complete',
+            'Harvard Kennedy School: Technology & Public Leadership Certificate earned (requires 3 HKS programs)',
+            'Full credential stack established: MBA + HKS + NACD + MIT/Wharton programs',
+            'Business-level Spanish fluency \u2014 fully integrated',
+            'Comfortable Italian across social and travel contexts'
+          ]},
+          { header: 'Communication & Leadership:', goals: [
+            'Speak at TED main stage or equivalent global platform',
+            'Published author \u2014 book on AI-driven business transformation',
+            'Recognized as transformational leader; C-suite with board experience',
+            'Expert-level negotiator \u2014 government and cross-sector deals'
+          ]},
+          { header: 'Bucket List Growth Experiences:', goals: [
+            'Attend World Economic Forum at Davos',
+            'Complete a silent retreat or leadership immersive (annual)',
+            'Speak at a major global conference \u2014 sharing the AI transformation story'
+          ]},
+          { header: 'Personal Growth:', goals: [
+            'Fully integrated \u2014 professional excellence and personal wholeness aligned',
+            'Work-life integration mastered \u2014 present as father, husband, and leader',
+            'Trusting team, faith, and process \u2014 released need to control everything'
+          ]}
+        ]
+      },
+      '60': {
+        label: '20 YEARS (Age 60)',
+        categories: [
+          { header: 'Credentials & Legacy:', goals: [
+            'Recognized thought leader with full credential stack',
+            'Mentoring the next generation of executives and leaders',
+            'Pilgrimage to the Holy Land / Jerusalem \u2014 the journey of a lifetime',
+            'Intellectual legacy \u2014 curating reading lists and ideas for others'
+          ]},
+          { header: 'Communication & Influence:', goals: [
+            'Known as a world-class communicator \u2014 regular global keynote speaker',
+            'Speaking fees $50\u2013100K+ per appearance',
+            'Multi-book author; possible second book on leadership or public service',
+            'Household name in business, AI, and political circles'
+          ]},
+          { header: 'Languages:', goals: [
+            'Bilingual \u2014 Spanish fully integrated into daily life',
+            'Working Italian proficiency \u2014 speaking it at the family compound in Italy'
+          ]},
+          { header: 'Personal Growth:', goals: [
+            'At peace \u2014 wisdom earned from a full life; giving it back freely',
+            'Multi-organization legacy; shaping leadership in business and public life',
+            'A man who grew into everything he set out to become \u2014 and more'
+          ]}
+        ]
+      }
     }
   },
   {
@@ -1131,13 +1234,104 @@ const SECTIONS = [
     name: 'Spiritual',
     color: 'var(--spiritual)',
     colorHex: '#4361EE',
-    inProgress: true,
-    confirmedGoals: ['Grow closer to God', 'Find a church home in Dallas'],
     timeframes: {
-      '40': { label: '1 YEAR (Age 40)', categories: [] },
-      '45': { label: '5 YEARS (Age 45)', categories: [] },
-      '50': { label: '10 YEARS (Age 50)', categories: [] },
-      '60': { label: '20 YEARS (Age 60)', categories: [] }
+      '40': {
+        label: '1 YEAR (Age 40)',
+        categories: [
+          { header: 'Church & Community:', goals: [
+            'Find a Catholic parish in Dallas \u2014 attend regularly',
+            'Begin introducing myself to the community; get connected',
+            'Volunteer in one area of ministry'
+          ]},
+          { header: 'Daily Practice:', goals: [
+            'Establish consistent daily prayer and morning devotional habit',
+            'Regular Mass attendance \u2014 weekly commitment',
+            'Meditation and quiet reflection \u2014 creating space to listen, not just speak'
+          ]},
+          { header: 'Faith & Giving:', goals: [
+            'Begin consistent tithing \u2014 establish a giving habit tied to faith'
+          ]},
+          { header: 'Spiritual Milestones:', goals: [
+            'First annual spiritual retreat or renewal weekend \u2014 away from screens and noise',
+            'Time to sit with God, review the year, and return to who I am meant to be'
+          ]}
+        ]
+      },
+      '45': {
+        label: '5 YEARS (Age 45)',
+        categories: [
+          { header: 'Church & Community:', goals: [
+            'Active, committed parish member \u2014 known by name, part of the community fabric',
+            'Serving in ministry consistently',
+            'Connected with a faith-based community beyond Sunday'
+          ]},
+          { header: 'Faith in Family Life:', goals: [
+            'Raising children with Catholic faith as a foundation',
+            'Family Mass attendance as a non-negotiable tradition',
+            'Very strong marriage rooted in shared faith \u2014 praying together',
+            'Faith guiding every major decision \u2014 career, family, finances'
+          ]},
+          { header: 'Faith & Giving:', goals: [
+            'Identify and begin funding a Catholic school or parish initiative',
+            'Faith-based giving a meaningful percentage of income'
+          ]},
+          { header: 'Spiritual Milestones:', goals: [
+            'Camino de Santiago \u2014 walk the historic 500-mile pilgrimage route across Spain',
+            'Annual spiritual retreat maintained (non-negotiable)',
+            'Known as a leader whose faith-shaped values are visible in how he operates'
+          ]}
+        ]
+      },
+      '50': {
+        label: '10 YEARS (Age 50)',
+        categories: [
+          { header: 'Church & Community:', goals: [
+            'Deeply rooted parish member \u2014 trusted, possibly in a leadership or stewardship role',
+            'Visible servant leader in the parish',
+            'Possibly mentoring younger members of the community'
+          ]},
+          { header: 'Faith in Family & Leadership:', goals: [
+            'Public about faith as a grounding force in life and leadership',
+            'Kids (ages 5\u201312) grounded in Catholic faith \u2014 attending Catholic school',
+            'Speaking openly about faith\u2019s role in my career and decisions'
+          ]},
+          { header: 'Faith & Giving:', goals: [
+            'Meaningful donor to Catholic education',
+            'Supporting families who cannot afford Catholic school',
+            'Active in faith-based philanthropic giving'
+          ]},
+          { header: 'Spiritual Milestones:', goals: [
+            'Pilgrimage to Rome and the Vatican \u2014 walking where Peter walked (Target: Age 47\u201350)',
+            'Annual spiritual retreat maintained',
+            'Spiritual maturity \u2014 faith steady under pressure, in success, and in grief'
+          ]}
+        ]
+      },
+      '60': {
+        label: '20 YEARS (Age 60)',
+        categories: [
+          { header: 'Church & Legacy:', goals: [
+            'A church community that has shaped me and that I have shaped \u2014 legacy of presence',
+            'Legacy of service; faith expressed through action over decades',
+            'Patriarch of a faith-filled family \u2014 the through-line of everything built'
+          ]},
+          { header: 'Faith in Leadership & Life:', goals: [
+            'A legacy of servant leadership rooted in faith',
+            'Known as a man of deep, quiet, tested faith \u2014 the kind that endures everything',
+            'Faith the answer to why I did everything I did'
+          ]},
+          { header: 'Faith & Giving:', goals: [
+            'Legacy gift \u2014 funding a scholarship, a building, or a program in the family\u2019s name',
+            'Possible endowed scholarship at a Catholic institution',
+            '$500K\u2013$1M+ in faith-based philanthropic giving over lifetime'
+          ]},
+          { header: 'Spiritual Milestones:', goals: [
+            'Pilgrimage to the Holy Land & Jerusalem \u2014 the journey of a lifetime (Target: Age 50\u201355)',
+            'Walking where Jesus walked \u2014 Sea of Galilee, Gethsemane, Via Dolorosa',
+            'A man at peace \u2014 wisdom from a full life, faith intact, legacy secure'
+          ]}
+        ]
+      }
     }
   },
   {
