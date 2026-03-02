@@ -198,6 +198,38 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600}
 .motto-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--gold-light);letter-spacing:1px}
 .motto-sub{font-size:12px;color:var(--text-dim);margin-top:8px}
 
+/* RICH SECTION CONTENT (Personal Dev & Spiritual) */
+.section-narrative{background:linear-gradient(135deg,rgba(201,168,76,0.06),rgba(201,168,76,0.02));border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:24px;font-size:14px;color:var(--text-secondary);line-height:1.7;position:relative;overflow:hidden}
+.section-narrative::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.roadmap-phase{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px}
+.roadmap-phase-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.roadmap-program{padding:10px 0;border-bottom:1px solid rgba(30,30,46,0.5)}
+.roadmap-program:last-child{border-bottom:none}
+.roadmap-program-name{font-size:13.5px;font-weight:600;color:var(--text-primary);margin-bottom:3px}
+.roadmap-program-desc{font-size:12.5px;color:var(--text-secondary);line-height:1.5}
+.roadmap-program-target{display:inline-block;margin-top:4px;font-size:11px;font-weight:600;color:var(--personal-dev);background:rgba(42,157,143,0.1);padding:2px 8px;border-radius:10px}
+.growth-area-card{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:12px;position:relative;overflow:hidden}
+.growth-area-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--personal-dev)}
+.growth-area-name{font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:6px}
+.growth-area-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
+.faith-practice-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;margin-bottom:6px;background:rgba(67,97,238,0.04);border-radius:8px;font-size:13.5px;color:var(--text-primary);line-height:1.5}
+.faith-practice-icon{color:var(--spiritual);flex-shrink:0;margin-top:2px}
+.faith-connection{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:12px;position:relative;overflow:hidden}
+.faith-connection::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--spiritual)}
+.faith-connection-name{font-size:14px;font-weight:600;color:var(--spiritual);margin-bottom:6px}
+.faith-connection-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
+.pilgrimage-card{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:12px;position:relative;overflow:hidden}
+.pilgrimage-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)}
+.pilgrimage-name{font-size:14px;font-weight:600;color:var(--gold-light);margin-bottom:6px}
+.pilgrimage-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
+.scripture-quote{background:linear-gradient(135deg,rgba(67,97,238,0.08),rgba(67,97,238,0.03));border:1px solid rgba(67,97,238,0.3);border-radius:12px;padding:24px;text-align:center;margin-top:24px}
+.scripture-text{font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:var(--text-primary);line-height:1.6}
+.bucket-list-growth{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:20px}
+.bucket-list-growth-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(30,30,46,0.5);font-size:13.5px;color:var(--text-primary);line-height:1.5}
+.bucket-list-growth-item:last-child{border-bottom:none}
+.bucket-list-growth-icon{color:var(--personal-dev);flex-shrink:0;margin-top:2px}
+.rich-section-label{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--text-primary);margin:28px 0 14px;display:flex;align-items:center;gap:10px}
+
 /* Responsive */
 @media(max-width:900px){
   .sidebar{display:none}
@@ -1117,13 +1149,166 @@ const SECTIONS = [
     name: 'Personal Development',
     color: 'var(--personal-dev)',
     colorHex: '#2A9D8F',
-    inProgress: true,
-    confirmedGoals: ['Executive MBA \u2014 Target age 45\u201350'],
+    narrative: 'Continuous growth is not optional \u2014 it is the engine behind every goal on this page. The commitment to learning, developing as a communicator and leader, and expanding my worldview is what separates good executives from great ones, and great leaders from transformational ones.',
+    educationRoadmap: [
+      {
+        phase: 'PHASE 1 \u2014 Short Programs & Early Credentials (Age 40\u201343)',
+        programs: [
+          { name: 'MIT Sloan: AI \u2014 Implications for Business Strategy', desc: '6-week online program developed with MIT\u2019s CSAIL. Establishes AI thought leadership credibility with one of the most prestigious technology institutions in the world.', target: 'Age 41' },
+          { name: 'Wharton: Generative AI & Business Transformation', desc: 'In-person executive program covering AI governance, ethics, competition, and innovation frameworks. Directly aligned with enterprise AI platform leadership experience.', target: 'Age 42' },
+          { name: 'Harvard Kennedy School: Emerging Leaders', desc: 'On-campus intensive covering negotiation, coalition building, and political power in the digital age. Bridges business leadership to public sector readiness.', target: 'Age 42\u201343' }
+        ]
+      },
+      {
+        phase: 'PHASE 2 \u2014 Executive MBA (Age 44\u201347)',
+        programs: [
+          { name: 'MIT Sloan Executive MBA \u2605 Primary Target', desc: '#1 globally ranked MBA program (FT 2026). Deep integration with MIT\u2019s AI and engineering ecosystem. Positions for C-suite and tech company board seats. Strong credibility with both Fortune 500 and tech industry stakeholders.', target: 'Age 44\u201347' },
+          { name: 'Alternate: Wharton EMBA or Kellogg MBAi', desc: 'Wharton (#1 U.S. EMBA, expanding AI curriculum) and Kellogg MBAi (purpose-built for AI business leaders) remain strong alternatives depending on career context at time of application.', target: '' }
+        ]
+      },
+      {
+        phase: 'PHASE 3 \u2014 Leadership & Political Track (Age 45\u201350)',
+        programs: [
+          { name: 'Harvard Kennedy School: Leadership for the 21st Century', desc: 'On-campus intensive focused on navigating politically charged environments, adaptive leadership, and mobilizing people through change. Bridges VP-level to senior executive and public leadership.', target: 'Age 45\u201346' },
+          { name: 'Harvard Kennedy School: Technology & Public Leadership Certificate', desc: 'Formal credential at the intersection of AI, technology, and governance. Requires completing 3 HKS programs. Designed precisely for leaders who sit at the crossroads of tech transformation and public policy.', target: 'Age 47\u201348' },
+          { name: 'NACD Board Leadership Fellow', desc: 'National Association of Corporate Directors gold standard for Fortune 500 board readiness. Critical credential for corporate board seat aspirations.', target: 'Age 46' }
+        ]
+      }
+    ],
+    bucketListGrowth: [
+      'Speak at TED or a major global conference \u2014 sharing the story of AI transformation at scale',
+      'Attend the World Economic Forum at Davos \u2014 engaging with world leaders, CEOs, and policymakers',
+      'Write and publish a book \u2014 the definitive guide on AI-driven business transformation for the next generation of leaders',
+      'Complete a silent retreat or leadership immersive \u2014 5\u20137 days of complete disconnection, reflection, and reset',
+      'Earn a Harvard Kennedy School Executive Certificate \u2014 the formal bridge between business leadership and public service'
+    ],
+    personalGrowthAreas: [
+      { area: 'Vulnerability & Emotional Openness', desc: 'Allowing myself to be seen \u2014 by a partner, by a team, by God. The strength it takes to lead with honesty rather than armor is the kind of strength that builds lasting relationships and enduring organizations.' },
+      { area: 'Work-Life Integration & Presence', desc: 'Being fully present \u2014 not just physically in the room. With future children, a partner, and a community that needs more than my r\u00e9sum\u00e9. Building a life worth coming home to, not just a career worth talking about.' },
+      { area: 'Letting Go of Control & Trusting Others', desc: 'The higher I rise, the more I must release. Trusting my team, my partner, my faith, and the process. The best leaders are not those who control everything \u2014 they are those who build others to carry the vision forward.' }
+    ],
     timeframes: {
-      '40': { label: '1 YEAR (Age 40)', categories: [] },
-      '45': { label: '5 YEARS (Age 45)', categories: [] },
-      '50': { label: '10 YEARS (Age 50)', categories: [] },
-      '60': { label: '20 YEARS (Age 60)', categories: [] }
+      '40': {
+        label: '1 YEAR (Age 40)',
+        categories: [
+          { header: 'Education:', goals: [
+            'Complete MIT Sloan AI for Business Strategy program',
+            'Complete Wharton Generative AI & Business Transformation program'
+          ]},
+          { header: 'Communication:', goals: [
+            'Complete public speaking training',
+            'Deliver first keynote at industry event'
+          ]},
+          { header: 'Leadership:', goals: [
+            'Complete EQ assessment',
+            'Begin structured coaching on vulnerability & trust'
+          ]},
+          { header: 'Negotiation:', goals: [
+            'Complete structured negotiation training (Harvard PON or equivalent)'
+          ]},
+          { header: 'Languages:', goals: [
+            'Begin structured Spanish learning (Pimsleur + iTalki tutor)',
+            'Begin Italian \u2014 focus on conversational basics for travel'
+          ]},
+          { header: 'Reading & Intellect:', goals: [
+            'Read 12 books/year minimum across leadership, AI, philosophy & stoicism'
+          ]},
+          { header: 'Personal Growth:', goals: [
+            'Active therapy or executive coaching',
+            'Working on vulnerability & trust'
+          ]}
+        ]
+      },
+      '45': {
+        label: '5 YEARS (Age 45)',
+        categories: [
+          { header: 'Education:', goals: [
+            'Enrolled in or completing MIT Sloan Executive MBA'
+          ]},
+          { header: 'Communication:', goals: [
+            'Deliver TEDx or major conference keynote'
+          ]},
+          { header: 'Leadership:', goals: [
+            'Leading 100+ person org with measurable culture results',
+            'Mentor 3+ leaders'
+          ]},
+          { header: 'Negotiation:', goals: [
+            'Applying negotiation skills in M&A, board, and policy contexts'
+          ]},
+          { header: 'Languages:', goals: [
+            'Conversational proficiency in Spanish; using in professional and social contexts',
+            'Conversational Italian; using during Italy trips and with future family'
+          ]},
+          { header: 'Reading & Intellect:', goals: [
+            'Deep reading in policy, history, and theology',
+            'Finish first draft of own book'
+          ]},
+          { header: 'Personal Growth:', goals: [
+            'Measurable growth in EQ, presence, and work-life integration'
+          ]}
+        ]
+      },
+      '50': {
+        label: '10 YEARS (Age 50)',
+        categories: [
+          { header: 'Education:', goals: [
+            'MIT Sloan EMBA complete',
+            'HKS Technology & Public Leadership Certificate earned'
+          ]},
+          { header: 'Communication:', goals: [
+            'Speak at TED main stage or equivalent global platform'
+          ]},
+          { header: 'Leadership:', goals: [
+            'Recognized as transformational leader',
+            'C-suite with board experience'
+          ]},
+          { header: 'Negotiation:', goals: [
+            'Expert-level deal-making; government and cross-sector negotiations'
+          ]},
+          { header: 'Languages:', goals: [
+            'Business-level fluency in Spanish',
+            'Comfortable in Italian across social and travel contexts'
+          ]},
+          { header: 'Reading & Intellect:', goals: [
+            'Published author',
+            'Reading across all domains including politics and economics'
+          ]},
+          { header: 'Personal Growth:', goals: [
+            'Fully integrated \u2014 professional excellence and personal wholeness aligned'
+          ]}
+        ]
+      },
+      '60': {
+        label: '20 YEARS (Age 60)',
+        categories: [
+          { header: 'Education:', goals: [
+            'Recognized thought leader with full credential stack',
+            'Mentoring others'
+          ]},
+          { header: 'Communication:', goals: [
+            'Known as a world-class communicator',
+            'Regular keynote speaker'
+          ]},
+          { header: 'Leadership:', goals: [
+            'Multi-org legacy',
+            'Shaping leadership in business and public life'
+          ]},
+          { header: 'Negotiation:', goals: [
+            'Advising others; reputation as trusted negotiator'
+          ]},
+          { header: 'Languages:', goals: [
+            'Bilingual \u2014 Spanish fully integrated into daily life',
+            'Working proficiency in Italian; speaking Italian at the family compound in Italy'
+          ]},
+          { header: 'Reading & Intellect:', goals: [
+            'Lifelong learner; curating reading lists for others',
+            'Intellectual legacy'
+          ]},
+          { header: 'Personal Growth:', goals: [
+            'At peace; wisdom earned from full life; giving it back'
+          ]}
+        ]
+      }
     }
   },
   {
@@ -1131,13 +1316,129 @@ const SECTIONS = [
     name: 'Spiritual',
     color: 'var(--spiritual)',
     colorHex: '#4361EE',
-    inProgress: true,
-    confirmedGoals: ['Grow closer to God', 'Find a church home in Dallas'],
+    narrative: 'Faith is not compartmentalized. It is the foundation beneath everything \u2014 my ethics, my ambition, my desire to serve, my capacity to love. Growing closer to God is not a goal among other goals. It is the ground on which all other goals stand.',
+    faithPractice: [
+      'Daily prayer and devotional time \u2014 morning grounding before the world gets loud',
+      'Regular Mass attendance \u2014 weekly commitment to the Catholic faith I was raised in',
+      'Meditation and quiet reflection \u2014 creating space to listen, not just speak',
+      'Finding a church home in Dallas \u2014 a Catholic parish where I can plant roots, be known, and belong'
+    ],
+    faithConnections: [
+      { connection: 'Guides My Ethics', desc: 'Every business decision, every leadership call, every moment where integrity is tested \u2014 my faith is the standard I hold myself to. Not the law. Not optics. God.' },
+      { connection: 'Fuels My Drive to Serve', desc: 'The ambition is not for me alone. It never was. Every dollar, every platform, every position of influence is fuel for serving others \u2014 my community, my future family, and the people who need a voice.' },
+      { connection: 'Grounds Me Under Pressure', desc: 'When the market crashes, when the deal falls through, when the rejection comes \u2014 faith is what keeps me from losing myself. It is the anchor beneath the storm.' },
+      { connection: 'Shapes My Vision for Legacy', desc: 'What I want to leave behind is not a net worth. It is a name that meant something \u2014 a family that loved God, a community that was better because I was in it, a generation of leaders I helped raise up.' }
+    ],
+    pilgrimages: [
+      { name: 'Annual Spiritual Retreat (Beginning Now)', desc: 'A dedicated weekend each year \u2014 away from screens, schedules, and noise. Time to sit with God, review the year, and return to who I am meant to be. Non-negotiable.' },
+      { name: 'Camino de Santiago, Spain (Target: Age 45)', desc: 'The historic 500-mile pilgrimage across northern Spain. Walked by millions over centuries. A physical, mental, and spiritual journey unlike anything else \u2014 carrying only what is necessary, arriving changed.' },
+      { name: 'Pilgrimage to Rome & the Vatican (Target: Age 47\u201350)', desc: 'Standing at the heart of the Catholic faith. Walking where Peter walked. A moment of profound connection to the tradition, the history, and the God I have been growing toward my whole life.' },
+      { name: 'Pilgrimage to the Holy Land & Jerusalem (Target: Age 50\u201355)', desc: 'The journey of a lifetime. Walking where Jesus walked \u2014 the Sea of Galilee, the Garden of Gethsemane, the Via Dolorosa. A moment that cannot be described, only lived.' }
+    ],
+    closingQuote: '\u201cWhatever you do, work at it with all your heart, as working for the Lord.\u201d \u2014 Colossians 3:23',
     timeframes: {
-      '40': { label: '1 YEAR (Age 40)', categories: [] },
-      '45': { label: '5 YEARS (Age 45)', categories: [] },
-      '50': { label: '10 YEARS (Age 50)', categories: [] },
-      '60': { label: '20 YEARS (Age 60)', categories: [] }
+      '40': {
+        label: '1 YEAR (Age 40)',
+        categories: [
+          { header: 'Church & Community:', goals: [
+            'Find a Catholic parish in Dallas',
+            'Attend regularly; begin introducing myself to the community'
+          ]},
+          { header: 'Daily Practice:', goals: [
+            'Establish consistent daily prayer and morning devotional habit'
+          ]},
+          { header: 'Church Involvement:', goals: [
+            'Attend regularly',
+            'Begin volunteering in one area of ministry'
+          ]},
+          { header: 'Pilgrimage & Milestones:', goals: [
+            'Annual spiritual retreat or renewal weekend \u2014 time away to reset with God'
+          ]},
+          { header: 'Faith & Giving:', goals: [
+            'Begin consistent tithing',
+            'Establish a giving habit tied to faith'
+          ]},
+          { header: 'Faith in Leadership:', goals: [
+            'Let faith guide ethical decisions in career transition and new role'
+          ]}
+        ]
+      },
+      '45': {
+        label: '5 YEARS (Age 45)',
+        categories: [
+          { header: 'Church & Community:', goals: [
+            'Active, committed member; known by name',
+            'Part of the community fabric'
+          ]},
+          { header: 'Daily Practice:', goals: [
+            'Prayer and reflection fully integrated \u2014 as natural as working out'
+          ]},
+          { header: 'Church Involvement:', goals: [
+            'Serving in ministry consistently',
+            'Connected with a faith-based community beyond Sunday'
+          ]},
+          { header: 'Pilgrimage & Milestones:', goals: [
+            'Camino de Santiago \u2014 walk the historic pilgrimage route across Spain'
+          ]},
+          { header: 'Faith & Giving:', goals: [
+            'Identify and begin funding a Catholic school or parish initiative'
+          ]},
+          { header: 'Faith in Leadership:', goals: [
+            'Known as a leader who leads with integrity',
+            'Faith-shaped values visible in how I operate'
+          ]}
+        ]
+      },
+      '50': {
+        label: '10 YEARS (Age 50)',
+        categories: [
+          { header: 'Church & Community:', goals: [
+            'Deeply rooted; trusted member',
+            'Possibly serving in a leadership or stewardship role'
+          ]},
+          { header: 'Daily Practice:', goals: [
+            'Spiritual maturity \u2014 faith is steady under pressure, in success, and in grief'
+          ]},
+          { header: 'Church Involvement:', goals: [
+            'Visible servant leader in the parish',
+            'Possibly mentoring younger members'
+          ]},
+          { header: 'Pilgrimage & Milestones:', goals: [
+            'Pilgrimage to Rome and the Vatican \u2014 standing at the center of the Catholic faith'
+          ]},
+          { header: 'Faith & Giving:', goals: [
+            'Meaningful donor to Catholic education',
+            'Supporting families who cannot afford it'
+          ]},
+          { header: 'Faith in Leadership:', goals: [
+            'Public about faith as a grounding force',
+            'Speaking openly about its role in my life and leadership'
+          ]}
+        ]
+      },
+      '60': {
+        label: '20 YEARS (Age 60)',
+        categories: [
+          { header: 'Church & Community:', goals: [
+            'A church community that has shaped me and that I have shaped \u2014 legacy of presence'
+          ]},
+          { header: 'Daily Practice:', goals: [
+            'A man of deep, quiet, tested faith \u2014 the kind that endures everything'
+          ]},
+          { header: 'Church Involvement:', goals: [
+            'Legacy of service; faith expressed through action over decades'
+          ]},
+          { header: 'Pilgrimage & Milestones:', goals: [
+            'Pilgrimage to the Holy Land / Jerusalem \u2014 the journey of a lifetime'
+          ]},
+          { header: 'Faith & Giving:', goals: [
+            'Legacy gift \u2014 funding a scholarship, a building, or a program in my family\u2019s name'
+          ]},
+          { header: 'Faith in Leadership:', goals: [
+            'A legacy of servant leadership rooted in faith \u2014 the through-line of everything I built'
+          ]}
+        ]
+      }
     }
   },
   {
@@ -1489,6 +1790,69 @@ function renderGoalsView() {
   html += '<div class="stat-item"><span class="stat-label">Remaining</span><span class="stat-value">' + (sectionCount.total - sectionCount.done) + '</span></div>';
   html += '</div>';
 
+  // Rich content for Personal Development
+  if (section.id === 'personal-dev') {
+    // Narrative
+    html += '<div class="section-narrative" style="--accent:var(--personal-dev)"><div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--personal-dev)"></div>' + section.narrative + '</div>';
+
+    // Education Roadmap
+    html += '<div class="rich-section-label"><i data-lucide="graduation-cap" style="width:20px;height:20px;color:var(--personal-dev)"></i> Education & Credentials Roadmap</div>';
+    section.educationRoadmap.forEach(phase => {
+      html += '<div class="roadmap-phase"><div class="roadmap-phase-title">' + phase.phase + '</div>';
+      phase.programs.forEach(prog => {
+        html += '<div class="roadmap-program"><div class="roadmap-program-name">' + prog.name + '</div>';
+        html += '<div class="roadmap-program-desc">' + prog.desc + '</div>';
+        if (prog.target) html += '<span class="roadmap-program-target">Target: ' + prog.target + '</span>';
+        html += '</div>';
+      });
+      html += '</div>';
+    });
+
+    // Bucket List Growth Experiences
+    html += '<div class="rich-section-label"><i data-lucide="rocket" style="width:20px;height:20px;color:var(--personal-dev)"></i> Bucket List Growth Experiences</div>';
+    html += '<div class="bucket-list-growth">';
+    section.bucketListGrowth.forEach(item => {
+      html += '<div class="bucket-list-growth-item"><span class="bucket-list-growth-icon"><i data-lucide="star" style="width:14px;height:14px"></i></span><span>' + item + '</span></div>';
+    });
+    html += '</div>';
+
+    // Personal Growth Areas
+    html += '<div class="rich-section-label"><i data-lucide="heart-handshake" style="width:20px;height:20px;color:var(--personal-dev)"></i> Personal Growth Areas</div>';
+    section.personalGrowthAreas.forEach(area => {
+      html += '<div class="growth-area-card"><div class="growth-area-name">' + area.area + '</div><div class="growth-area-desc">' + area.desc + '</div></div>';
+    });
+
+    // Label before timeframe goals
+    html += '<div class="rich-section-label"><i data-lucide="calendar-check" style="width:20px;height:20px;color:var(--personal-dev)"></i> Goals by Timeframe</div>';
+  }
+
+  // Rich content for Spiritual
+  if (section.id === 'spiritual') {
+    // Narrative
+    html += '<div class="section-narrative"><div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--spiritual)"></div>' + section.narrative + '</div>';
+
+    // Faith Practice
+    html += '<div class="rich-section-label"><i data-lucide="church" style="width:20px;height:20px;color:var(--spiritual)"></i> Faith Practice</div>';
+    section.faithPractice.forEach(item => {
+      html += '<div class="faith-practice-item"><span class="faith-practice-icon"><i data-lucide="cross" style="width:14px;height:14px"></i></span><span>' + item + '</span></div>';
+    });
+
+    // How Faith Connects
+    html += '<div class="rich-section-label"><i data-lucide="link" style="width:20px;height:20px;color:var(--spiritual)"></i> How Faith Connects to My Life & Leadership</div>';
+    section.faithConnections.forEach(conn => {
+      html += '<div class="faith-connection"><div class="faith-connection-name">' + conn.connection + '</div><div class="faith-connection-desc">' + conn.desc + '</div></div>';
+    });
+
+    // Spiritual Milestones & Pilgrimages
+    html += '<div class="rich-section-label"><i data-lucide="map-pin" style="width:20px;height:20px;color:var(--gold)"></i> Spiritual Milestones & Pilgrimages</div>';
+    section.pilgrimages.forEach(p => {
+      html += '<div class="pilgrimage-card"><div class="pilgrimage-name">' + p.name + '</div><div class="pilgrimage-desc">' + p.desc + '</div></div>';
+    });
+
+    // Label before timeframe goals
+    html += '<div class="rich-section-label"><i data-lucide="calendar-check" style="width:20px;height:20px;color:var(--spiritual)"></i> Goals by Timeframe</div>';
+  }
+
   // Confirmed goals for in-progress sections
   if (section.confirmedGoals && section.confirmedGoals.length > 0) {
     html += '<div class="confirmed-goals"><div class="confirmed-label">Confirmed Goals</div>';
@@ -1587,6 +1951,11 @@ function renderGoalsView() {
       }
       html += '</div></div>';
     });
+  }
+
+  // Closing scripture quote for Spiritual section
+  if (section.closingQuote) {
+    html += '<div class="scripture-quote"><div class="scripture-text">' + section.closingQuote + '</div></div>';
   }
 
   return html;
